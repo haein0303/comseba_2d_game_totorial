@@ -3,7 +3,7 @@
 #include <cmath>
 #include <Windows.h>
 using namespace doodle;
-
+using namespace std;
 double                   angle{ 0.0 };
 double                   grey{ 0 };
 double                   x{ 0.0 };
@@ -38,12 +38,13 @@ double distance(POINT input){
 
 int main(void)
 {
+    cout << "start program" << endl;
     create_window(Width, Height);
     const Image orangeHero{ "cat.png" };
     set_image_mode(RectMode::Center);
     float dgree = 0.f;
 
-    Image walk[6];
+    Image walk_sprite[6];
 
     char filename[10];
     int walkcount = 0;
@@ -52,7 +53,7 @@ int main(void)
 
     for (int i = 0; i < 6; ++i) {
         sprintf_s(filename, "%d.png", i + 1);
-        walk[i] = Image((const char*)filename);
+        walk_sprite[i] = Image((const char*)filename);
     }
 
     POINT elipse_location = { 0,0 };
@@ -67,7 +68,7 @@ int main(void)
             elipse_location.y = y;
         }
         
-        draw_image(walk[walkcount], elipse_location.x , elipse_location.y, 300, 300);
+        draw_image(walk_sprite[walkcount], elipse_location.x , elipse_location.y, 300, 300);
         dgree += 5.f * DeltaTime;
         draw_image(orangeHero, elipse_location.x + sin(dgree) * 400, elipse_location.y + cos(dgree) * 400, 300, 300);
         if (delta > 1.f / 10.f) {
