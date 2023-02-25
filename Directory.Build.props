@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ImportGroup Label="PropertySheets" />
+    <PropertyGroup Label="UserMacros" />
+    <PropertyGroup />
+    <ItemDefinitionGroup>
+        <Link>
+            <AdditionalDependencies>doodle.lib;Opengl32.lib;Gdi32.lib;User32.lib;%(AdditionalLibraryDependencies)</AdditionalDependencies>
+        </Link>
+        <ClCompile>
+            <LanguageStandard>stdcpp17</LanguageStandard>
+            <AdditionalIncludeDirectories>C:\doodle_development\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+        </ClCompile>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+        <Link>
+            <AdditionalLibraryDirectories>C:\doodle_development\bin\Debug\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+        </Link>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+        <ClCompile>
+            <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+            <FloatingPointModel>Fast</FloatingPointModel>
+            <DebugInformationFormat>None</DebugInformationFormat>
+        </ClCompile>
+        <Link>
+            <AdditionalLibraryDirectories>C:\doodle_development\bin\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+        </Link>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+        <Link>
+            <AdditionalLibraryDirectories>C:\doodle_development\bin\Debug\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+        </Link>
+        <ClCompile>
+            <Optimization>Disabled</Optimization>
+        </ClCompile>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+        <ClCompile>
+            <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+            <FloatingPointModel>Fast</FloatingPointModel>
+            <DebugInformationFormat>None</DebugInformationFormat>
+        </ClCompile>
+        <Link>
+            <AdditionalLibraryDirectories>C:\doodle_development\bin\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+        </Link>
+    </ItemDefinitionGroup>
+    <ItemGroup />
+</Project>
