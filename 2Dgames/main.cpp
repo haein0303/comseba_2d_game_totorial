@@ -68,9 +68,14 @@ int main(void)
             elipse_location.y = y;
         }
         
-        draw_image(walk_sprite[walkcount], elipse_location.x , elipse_location.y, 300, 300);
+        draw_image(walk_sprite[walkcount], elipse_location.x , elipse_location.y, 100, 100);
         dgree += 5.f * DeltaTime;
-        draw_image(orangeHero, elipse_location.x + sin(dgree) * 400, elipse_location.y + cos(dgree) * 400, 300, 300);
+
+        apply_translate(elipse_location.x+sin(dgree)*100, elipse_location.y+cos(dgree)*100);
+        apply_rotate(-dgree);
+        
+        draw_image(orangeHero, 0, 0, 100, 100);
+
         if (delta > 1.f / 10.f) {
             delta = 0;
             walkcount = (walkcount + 1) % 6;
